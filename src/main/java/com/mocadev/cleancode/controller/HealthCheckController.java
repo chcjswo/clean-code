@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @blog https://mocadev.tistory.com
  * @github https://github.com/chcjswo
  * @since 2022-03-11
+ *
+ * 서비스 헬스 체크를 위한 컨트롤러
  **/
 @RestController
 public class HealthCheckController {

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @blog https://mocadev.tistory.com
  * @github https://github.com/chcjswo
  * @since 2022-03-12
+ *
+ * 중계수수료가 얼마인지 조회하는 컨트롤러
  **/
 @RestController
 public class BrokerageQueryController {
