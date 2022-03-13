@@ -1,5 +1,13 @@
-#### 임대 수수료 - 매매
+### 중계 수수료 - 매매
 GET {{host}}/api/calc/brokerage?actionType=PURCHASE&price=1000000000
 
-#### 임대 수수료 - 임대차
+### 중계 수수료 - 임대차
 GET {{host}}/api/calc/brokerage?actionType=RENT&price=1000000000
+
+### 중계 수수료 - 매매
+GET {{host}}/api/calc/apartment/1?actionType=PURCHASE
+
+### 중계 수수료 - 임대차
+GET {{host}}/api/calc/apartment/1?actionType=RENT
+
+
