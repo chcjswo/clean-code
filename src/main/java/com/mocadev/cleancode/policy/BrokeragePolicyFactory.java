@@ -1,6 +1,8 @@
 package com.mocadev.cleancode.policy;
 
 import com.mocadev.cleancode.contants.ActionType;
+import com.mocadev.cleancode.exception.ErrorCode;
+import com.mocadev.cleancode.exception.HouseUtilsException;
 
 /**
  * @author chcjswo
@@ -18,7 +20,7 @@ public class BrokeragePolicyFactory {
 			case PURCHASE:
 				return new PurchaseBrokeragePolicy();
 			default:
-				throw new IllegalArgumentException("해당 actionType에 대한 정책이 존재하지 않습니다.");
+				throw new HouseUtilsException(ErrorCode.INVALID_REQUEST, "해당 actionType에 대한 정책이 존재하지 않습니다.");
 		}
 	}
 }
