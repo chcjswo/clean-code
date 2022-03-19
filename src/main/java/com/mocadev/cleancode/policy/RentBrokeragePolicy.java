@@ -1,5 +1,9 @@
 package com.mocadev.cleancode.policy;
 
+import java.util.Arrays;
+import java.util.List;
+import lombok.Getter;
+
 /**
  * 임대차일 때 중계수수료를 계산해주는 클래스
  *
@@ -9,22 +13,18 @@ package com.mocadev.cleancode.policy;
  * @github https://github.com/chcjswo
  * @since 2022-03-12
  **/
+@Getter
 public class RentBrokeragePolicy implements BrokeragePolicy {
 
-	@Override
-	public BrokerageRule createBrokerageRule(Long price) {
-		BrokerageRule rule;
-		if (price < 50_000_000) {
-			rule = new BrokerageRule(0.5, 250000L);
-		} else if (price < 100000000) {
-			rule = new BrokerageRule(0.4, 400000L);
-		} else if (price < 300000000) {
-			rule = new BrokerageRule(0.3, null);
-		} else if (price < 600000000) {
-			rule = new BrokerageRule(0.4, null);
-		} else {
-			rule = new BrokerageRule(0.8, null);
-		}
-		return rule;
+	private final List<BrokerageRule> rules;
+
+	public RentBrokeragePolicy() {
+		this.rules = Arrays.asList(
+			new BrokerageRule(50_000_000L, 0.5, 250000L),
+			new BrokerageRule(100000000L, 0.4, 400000L),
+			new BrokerageRule(300000000L, 0.3),
+			new BrokerageRule(600000000L, 0.4),
+			new BrokerageRule(Long.MAX_VALUE, 0.8)
+		);
 	}
 }
